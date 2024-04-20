@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>regist</title>
+</head>
+<body>
+<h1>신규 직원 등록</h1>
+<form action="/employee/regist" method="post">
+    <label>직원 이름 : </label><input type="text" name="empName"><br>
+    <label>주민 등록 번호 : </label><input type="text" name="empNo"><br>
+    <label>이메일 : </label><input type="text" name="email"><br>
+    <label>전화번호 : </label><input type="text" name="phone"><br>
+    <br>
+    <label>부서 : </label>
+    <select name="department.deptId" id="deptId">
+        <!--
+
+         -->
+    </select><br>
+    <input type="submit" value="전송">
+</form>
+<script>
+    fetch('/employee/department')
+        .then(res => res.json())
+        .then(data => {
+            const $deptId = document.getElementById('deptId');
+            console.log($deptId)
+            for (let index in data) {
+                const $option = document.createElement('option');
+                $option.value = data[index].deptId;
+                $option.textContent = data[index].deptTitle;
+                $deptId.appendChild($option);
+            }
+        });
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>list</title>
+</head>
+<body>
+<h1>해당 초과 급여 직원 목록</h1>
+<table>
+    <tr th:each=" empList: ${empList}">
+        <td th:text="${empList.empId}"></td>
+        <td th:text="${empList.empNo}"></td>
+        <td th:text="${empList.empName}"></td>
+        <td th:text="${empList.phone}"></td>
+        <td th:text="${empList.department}"></td>
+        <td th:text="${empList.email}"></td>
+        <td th:text="${empList.salary}"></td>
+    </tr>
+</table>
+</body>
+</html>
